@@ -4,8 +4,8 @@
     "label": "Fuzzy Search",
     "description": "Connector provides actions to search fuzzy word in string.",
     "publisher": "Fortinet",
-    "icon_small_name": "",
-    "icon_large_name": "",
+    "icon_small_name": "small.png",
+    "icon_large_name": "large.png",
     "configuration": {},
     "operations": [
         {
