@@ -1,0 +1,100 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "d200f875-c5d3-4a7e-89d1-f546d2ffb18f",
+      "@type": "WorkflowCollection",
+      "name": "Sample - Fuzzy Search - 1.0.0",
+      "description": "Connector provides actions to search fuzzy word in string.",
+      "visible": true,
+      "image": null,
+      "recordTags": [
+        "fuzzy-search"
+      ],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "47cb26c9-36b1-4029-a7f4-91639d5c8761",
+          "collection": "/api/3/workflow_collections/d200f875-c5d3-4a7e-89d1-f546d2ffb18f",
+          "triggerLimit": null,
+          "description": "Filters json by provided key value pair.",
+          "name": "Filter JSON by Key Value",
+          "tag": "#Fuzzy Search",
+          "recordTags": [
+            "fuzzy-search"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/c7a1d9fe-e892-4c85-8fcb-2a6a9c35b839",
+          "steps": [
+            {
+              "uuid": "c7a1d9fe-e892-4c85-8fcb-2a6a9c35b839",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "967ad24d-68dd-4a32-a1c9-5c76007860b0",
+                "title": "Fuzzy Search: Filter JSON by Key Value",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "c59831f3-69f8-4f38-bf0b-b3752a368d70",
+              "@type": "WorkflowStep",
+              "name": "Filter JSON by Key Value",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Fuzzy Search",
+                "config": "''",
+                "params": {
+                  "targetKeyValue": null,
+                  "similarityThreshold": 75
+                },
+                "version": "1.0.0",
+                "connector": "fuzzy-search",
+                "operation": "filter_json_by_key_value",
+                "operationTitle": "Filter JSON by Key Value",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "8e80c110-64e9-4bdc-9c54-09818d5ccdd9",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Filter JSON by Key Value",
+              "sourceStep": "/api/3/workflow_steps/c7a1d9fe-e892-4c85-8fcb-2a6a9c35b839",
+              "targetStep": "/api/3/workflow_steps/c59831f3-69f8-4f38-bf0b-b3752a368d70"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

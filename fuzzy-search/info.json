@@ -1,0 +1,73 @@
+{
+    "name": "fuzzy-search",
+    "version": "1.0.0",
+    "label": "Fuzzy Search",
+    "description": "Connector provides actions to search fuzzy word in string.",
+    "publisher": "Fortinet",
+    "icon_small_name": "small.png",
+    "icon_large_name": "large.png",
+    "configuration": {},
+    "operations": [
+        {
+            "operation": "filter_json_by_key_value",
+            "title": "Filter JSON by Key Value",
+            "annotation": "filter_json_by_key_value",
+            "description": "Filters JSON as per provided key value pair.",
+            "category": "investigation",
+            "is_config_required": true,
+            "visible": true,
+            "enabled": true,
+            "parameters": [
+                {
+                    "title": "Record JSON",
+                    "type": "text",
+                    "name": "recordJSON",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "description": "Specify list of JSON or JSON to filter data.",
+                    "tooltip": "Specify list of JSON or JSON to filter data."
+                },
+                {
+                    "title": "Target Key",
+                    "type": "text",
+                    "name": "targetKey",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "description": "Specify target key for data filtering.",
+                    "tooltip": "Specify target key for data filtering."
+                },
+                {
+                    "title": "Target Key's Value",
+                    "type": "text",
+                    "name": "targetKeyValue",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": null,
+                    "description": "Specify target key's value for data filtering.",
+                    "tooltip": "Specify target key's value for data filtering."
+                },
+                {
+                    "title": "Similarity Threshold",
+                    "type": "integer",
+                    "name": "similarityThreshold",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": 75,
+                    "description": "Specify threshold to match key value data in JSON.",
+                    "tooltip": "Specify threshold to match key value data in JSON."
+                }
+            ],
+            "output_schema": {},
+            "open": false
+        }
+    ],
+    "category": "Utilities",
+    "active": true,
+    "cs_compatible": true,
+    "help_online": "",
+    "cs_approved": false
+}
