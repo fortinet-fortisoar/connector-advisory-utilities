@@ -2,6 +2,8 @@ from connectors.core.connector import Connector, get_logger, ConnectorError
 from .operations import operations
 
 logger = get_logger("fuzzy-search")
+
+
 class CustomConnector(Connector):
     def execute(self, config, operation, params, **kwargs):
         try:

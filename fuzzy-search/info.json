@@ -20,34 +20,25 @@
             "parameters": [
                 {
                     "title": "Record JSON",
-                    "type": "text",
+                    "type": "object",
                     "name": "recordJSON",
                     "required": true,
                     "visible": true,
                     "editable": true,
-                    "description": "Specify list of JSON or JSON to filter data.",
-                    "tooltip": "Specify list of JSON or JSON to filter data."
+                    "value": null,
+                    "tooltip": "Specify list of JSON or JSON to filter data.",
+                    "description": "Specify list of JSON or JSON to filter data."
                 },
                 {
-                    "title": "Target Key",
-                    "type": "text",
-                    "name": "targetKey",
-                    "required": true,
-                    "visible": true,
-                    "editable": true,
-                    "description": "Specify target key for data filtering.",
-                    "tooltip": "Specify target key for data filtering."
-                },
-                {
-                    "title": "Target Key's Value",
-                    "type": "text",
+                    "title": "Target Key Value",
+                    "type": "object",
                     "name": "targetKeyValue",
                     "required": true,
                     "visible": true,
                     "editable": true,
                     "value": null,
                     "description": "Specify target key's value for data filtering.",
-                    "tooltip": "Specify target key's value for data filtering."
+                    "tooltip": "Specify key value for data filtering."
                 },
                 {
                     "title": "Similarity Threshold",
@@ -59,10 +50,87 @@
                     "value": 75,
                     "description": "Specify threshold to match key value data in JSON.",
                     "tooltip": "Specify threshold to match key value data in JSON."
+                },
+                {
+                    "title": "Fuzzy Match",
+                    "type": "checkbox",
+                    "name": "fuzzyMatch",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "value": true,
+                    "onchange": {
+                        "true": [
+                            {
+                                "name": "cutoff",
+                                "title": "Cut Off",
+                                "description": "Specify cut off to filter data for Fuzzy Match.",
+                                "type": "integer",
+                                "editable": true,
+                                "visible": true,
+                                "required": true,
+                                "value": "75",
+                                "tooltip": "Specify cut off to filter data for Fuzzy Match."
+                            }
+                        ]
+                    }
                 }
             ],
             "output_schema": {},
             "open": false
+        },
+        {
+            "title": "Search Keyword In Text",
+            "operation": "search_keyword_in_text",
+            "description": "Searche specified keyword in Text",
+            "parameters": [
+                {
+                    "title": "Target Text",
+                    "type": "textarea",
+                    "name": "targetText",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": null,
+                    "tooltip": "Specify target text to search in.",
+                    "description": "Specify target text to search in."
+                },
+                {
+                    "title": "Keyword To Search",
+                    "type": "text",
+                    "name": "keywordToSearch",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": "",
+                    "tooltip": "Specify keyword or list of keywords to search in Target Text.",
+                    "description": "Specify keyword or list of keywords to search in Target Text."
+                },
+                {
+                    "title": "Limit",
+                    "type": "integer",
+                    "name": "limit",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": 10,
+                    "tooltip": "Specify limit to show keywords found in.",
+                    "description": "Specify limit to show keywords found in."
+                },
+                {
+                    "title": "Cut Off",
+                    "type": "integer",
+                    "name": "cutoff",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": 75,
+                    "tooltip": "Specify cut off to filter data for Fuzzy Match.",
+                    "description": "Specify cut off to filter data for Fuzzy Match."
+                }
+            ],
+            "open": false,
+            "category": "investigation"
         }
     ],
     "category": "Utilities",
