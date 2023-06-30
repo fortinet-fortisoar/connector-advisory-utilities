@@ -12,7 +12,7 @@
             "operation": "filter_json_by_key_value",
             "title": "Filter JSON by Key Value",
             "annotation": "filter_json_by_key_value",
-            "description": "Filters JSON as per provided key value pair in JSON.",
+            "description": "Filters Input JSON as per provided key value pair as JSON object",
             "category": "investigation",
             "is_config_required": true,
             "visible": true,
@@ -25,9 +25,9 @@
                     "required": true,
                     "visible": true,
                     "editable": true,
-                    "value": null,
-                    "tooltip": "Specify list of JSON or JSON to filter data.",
-                    "description": "Specify list of JSON or JSON to filter data."
+                    "value": "{\n  \"key1\": \"value1\",\n  \"key2\": \"value2\",\n  \"key3\": \"value3\"\n}",
+                    "tooltip": "Specify a input JSON or JSON list.",
+                    "description": "Specify a input JSON or JSON list."
                 },
                 {
                     "title": "Target Key Value",
@@ -36,9 +36,9 @@
                     "required": true,
                     "visible": true,
                     "editable": true,
-                    "value": null,
-                    "tooltip": "Specify target key values pair for JSON data filtering.",
-                    "description": "Specify target key values pair for JSON data filtering."
+                    "value": "{\n  \"key1\": \"value1\",\n  \"key2\": \"value2\"\n}",
+                    "tooltip": "Specify target key value pairs for JSON data filtering.",
+                    "description": "Specify target key value pairs for JSON data filtering."
                 },
                 {
                     "title": "Similarity Threshold",
@@ -59,8 +59,8 @@
                     "visible": true,
                     "editable": true,
                     "value": true,
-                    "tooltip": "Check to filter data for fuzzy format.",
-                    "description": "Check to filter data for fuzzy format.",
+                    "tooltip": "Select to filter data using fuzzy logic.",
+                    "description": "Select to filter data using fuzzy logic.",
                     "onchange": {
                         "true": [
                             {
@@ -84,7 +84,7 @@
         {
             "title": "Search Keyword In Text",
             "operation": "search_keyword_in_text",
-            "description": "Searches specified fuzzy keyword in text",
+            "description": "Fuzzy search specified keyword in an input text.",
             "parameters": [
                 {
                     "title": "Input Text",
