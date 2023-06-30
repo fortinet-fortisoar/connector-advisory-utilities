@@ -52,23 +52,35 @@ class Fuzzy_Search:
             logger.exception(str(err))
             raise Exception(err)
 
-    def get_fuzzy_search_data(self, keyword_to_search, targetText, params):
-        return difflib.get_close_matches(keyword_to_search, targetText.split(
+    def get_fuzzy_search_data(self, keyword_to_search, inputText, params):
+        return difflib.get_close_matches(keyword_to_search, inputText.split(
             ' '), n=params['limit'], cutoff=params['cutoff']/100)
+
+    def verify_threshold(self, threshold_value, key_name):
+        if threshold_value in range(0, 101):
+            return
+        logger.exception(
+            str("{0} value should be in range 0 to 100".format(key_name)))
+        raise Exception(
+            str("{0} value should be in range 0 to 100".format(key_name)))
 
 
 def filter_json_by_key_value(config, params):
     try:
         filter_data = []
         fuzzy_search = Fuzzy_Search()
-        if isinstance(params['recordJSON'], list):
-            for record in params['recordJSON']:
+        fuzzy_search.verify_threshold(
+            params['similarityThreshold'], "Similarity Threshold")
+        if 'cutoff' in params.keys():
+            fuzzy_search.verify_threshold(params['cutoff'], "Cut Off")
+        if isinstance(params['inputJSON'], list):
+            for record in params['inputJSON']:
                 if fuzzy_search.filter_data(record, params):
                     filter_data.append(record)
             return filter_data
-        elif isinstance(params['recordJSON'], dict):
-            if fuzzy_search.filter_data(params['recordJSON'], params):
-                filter_data.append(params['recordJSON'])
+        elif isinstance(params['inputJSON'], dict):
+            if fuzzy_search.filter_data(params['inputJSON'], params):
+                filter_data.append(params['inputJSON'])
             return filter_data
     except Exception as err:
         logger.exception(str(err))
@@ -78,16 +90,17 @@ def filter_json_by_key_value(config, params):
 def search_keyword_in_text(config, params):
     searched_result = []
     fuzzy_search = Fuzzy_Search()
+    fuzzy_search.verify_threshold(params['cutoff'], "Cut Off")
     if isinstance(params['keywordToSearch'], str):
         fuzzy_match = fuzzy_search.get_fuzzy_search_data(
-            params['keywordToSearch'], params['targetText'], params)
+            params['keywordToSearch'], params['inputText'], params)
         if len(fuzzy_match) > 0:
             for item in fuzzy_match:
                 searched_result.append(item)
     elif isinstance(params['keywordToSearch'], list):
         for data in params['keywordToSearch']:
             fuzzy_match = fuzzy_search.get_fuzzy_search_data(
-                data, params['targetText'], params)
+                data, params['inputText'], params)
             if len(fuzzy_match) > 0:
                 for item in fuzzy_match:
                     searched_result.append(item)

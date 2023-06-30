@@ -66,18 +66,17 @@
                 "name": "Fuzzy Search",
                 "config": "''",
                 "params": {
-                  "recordJSON": null,
-                  "targetKeyValue": null,
-                  "similarityThreshold": 75,
-                  "fuzzyMatch": true
+                  "cutoff": 75,
+                  "inputJSON": "{\n  \"key1\": \"value1\",\n  \"key2\": \"value2\",\n  \"key3\": \"value3\"\n}",
+                  "fuzzyMatch": true,
+                  "targetKeyValue": "{\n  \"key1\": \"value1\",\n  \"key2\": \"value2\"\n}",
+                  "similarityThreshold": 75
                 },
                 "version": "1.0.0",
                 "connector": "fuzzy-search",
                 "operation": "filter_json_by_key_value",
                 "operationTitle": "Filter JSON by Key Value",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "step_variables": []
               },
               "left": "188",
               "top": "120",
@@ -159,9 +158,7 @@
                 "connector": "fuzzy-search",
                 "operation": "search_keyword_in_text",
                 "operationTitle": "Search Keyword In Text",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "step_variables": []
               },
               "left": "188",
               "top": "120",

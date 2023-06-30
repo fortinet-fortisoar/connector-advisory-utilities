@@ -12,16 +12,16 @@
             "operation": "filter_json_by_key_value",
             "title": "Filter JSON by Key Value",
             "annotation": "filter_json_by_key_value",
-            "description": "Filters JSON as per provided key value pair.",
+            "description": "Filters JSON as per provided key value pair in JSON.",
             "category": "investigation",
             "is_config_required": true,
             "visible": true,
             "enabled": true,
             "parameters": [
                 {
-                    "title": "Record JSON",
+                    "title": "Input JSON",
                     "type": "object",
-                    "name": "recordJSON",
+                    "name": "inputJSON",
                     "required": true,
                     "visible": true,
                     "editable": true,
@@ -37,8 +37,8 @@
                     "visible": true,
                     "editable": true,
                     "value": null,
-                    "description": "Specify target key's value for data filtering.",
-                    "tooltip": "Specify key value for data filtering."
+                    "tooltip": "Specify target key values pair for JSON data filtering.",
+                    "description": "Specify target key values pair for JSON data filtering."
                 },
                 {
                     "title": "Similarity Threshold",
@@ -48,8 +48,8 @@
                     "visible": true,
                     "editable": true,
                     "value": 75,
-                    "description": "Specify threshold to match key value data in JSON.",
-                    "tooltip": "Specify threshold to match key value data in JSON."
+                    "tooltip": "Specify the similarity threshold (percentage) to match key value data in JSON.",
+                    "description": "Specify the similarity threshold (percentage) to match key value data in JSON."
                 },
                 {
                     "title": "Fuzzy Match",
@@ -59,18 +59,20 @@
                     "visible": true,
                     "editable": true,
                     "value": true,
+                    "tooltip": "Check to filter data for fuzzy format.",
+                    "description": "Check to filter data for fuzzy format.",
                     "onchange": {
                         "true": [
                             {
                                 "name": "cutoff",
                                 "title": "Cut Off",
-                                "description": "Specify cut off to filter data for Fuzzy Match.",
+                                "description": "Specify Cut Off (percentage) to filter data for Fuzzy Match.",
                                 "type": "integer",
                                 "editable": true,
                                 "visible": true,
                                 "required": true,
-                                "value": "75",
-                                "tooltip": "Specify cut off to filter data for Fuzzy Match."
+                                "value": 75,
+                                "tooltip": "Specify Cut Off (percentage) to filter data for Fuzzy Match."
                             }
                         ]
                     }
@@ -82,18 +84,18 @@
         {
             "title": "Search Keyword In Text",
             "operation": "search_keyword_in_text",
-            "description": "Searche specified keyword in Text",
+            "description": "Searches specified fuzzy keyword in text",
             "parameters": [
                 {
-                    "title": "Target Text",
+                    "title": "Input Text",
                     "type": "textarea",
-                    "name": "targetText",
+                    "name": "inputText",
                     "required": true,
                     "visible": true,
                     "editable": true,
                     "value": null,
-                    "tooltip": "Specify target text to search in.",
-                    "description": "Specify target text to search in."
+                    "tooltip": "Specify text to search keyword in.",
+                    "description": "Specify text to search keyword in."
                 },
                 {
                     "title": "Keyword To Search",
@@ -103,8 +105,8 @@
                     "visible": true,
                     "editable": true,
                     "value": "",
-                    "tooltip": "Specify keyword or list of keywords to search in Target Text.",
-                    "description": "Specify keyword or list of keywords to search in Target Text."
+                    "tooltip": "Specify keyword or list of keywords to search in input text.",
+                    "description": "Specify keyword or list of keywords to search in input text."
                 },
                 {
                     "title": "Limit",
@@ -114,8 +116,8 @@
                     "visible": true,
                     "editable": true,
                     "value": 10,
-                    "tooltip": "Specify limit to show keywords found in.",
-                    "description": "Specify limit to show keywords found in."
+                    "tooltip": "Specify limit to get occurrence of keyword in input text.",
+                    "description": "Specify limit to get occurrence of keyword in input text."
                 },
                 {
                     "title": "Cut Off",
@@ -125,8 +127,8 @@
                     "visible": true,
                     "editable": true,
                     "value": 75,
-                    "tooltip": "Specify cut off to filter data for Fuzzy Match.",
-                    "description": "Specify cut off to filter data for Fuzzy Match."
+                    "tooltip": "Specify the Cut Off (percentage) to filter data for Fuzzy Match.",
+                    "description": "Specify the Cut Off (percentage) to filter data for Fuzzy Match."
                 }
             ],
             "open": false,
