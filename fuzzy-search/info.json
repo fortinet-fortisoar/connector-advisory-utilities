@@ -2,7 +2,7 @@
     "name": "fuzzy-search",
     "version": "1.0.0",
     "label": "Fuzzy Search",
-    "description": "Connector provides actions to search fuzzy word in string.",
+    "description": "Connector provides actions to find relevant results even when they do not know the exact term by filtering the provided JSON data and also searches for keywords within the provided text using fuzzy logic.",
     "publisher": "Fortinet",
     "icon_small_name": "small.png",
     "icon_large_name": "large.png",
@@ -12,7 +12,7 @@
             "operation": "filter_json_by_key_value",
             "title": "Filter JSON by Key Value",
             "annotation": "filter_json_by_key_value",
-            "description": "Filters Input JSON as per provided key value pair as JSON object",
+            "description": "Filters JSON as per provided key-value pair.",
             "category": "investigation",
             "is_config_required": true,
             "visible": true,
@@ -26,8 +26,8 @@
                     "visible": true,
                     "editable": true,
                     "value": "{\n  \"key1\": \"value1\",\n  \"key2\": \"value2\",\n  \"key3\": \"value3\"\n}",
-                    "tooltip": "Specify a input JSON or JSON list.",
-                    "description": "Specify a input JSON or JSON list."
+                    "tooltip": "Specify the JSON data or the JSON list that you want to filter.",
+                    "description": "Specify the JSON data or the JSON list that you want to filter."
                 },
                 {
                     "title": "Target Key Value",
@@ -37,8 +37,8 @@
                     "visible": true,
                     "editable": true,
                     "value": "{\n  \"key1\": \"value1\",\n  \"key2\": \"value2\"\n}",
-                    "tooltip": "Specify target key value pairs for JSON data filtering.",
-                    "description": "Specify target key value pairs for JSON data filtering."
+                    "tooltip": "Specify the target key-value pairs to be used for filtering the JSON input.",
+                    "description": "Specify the target key-value pairs to be used for filtering the JSON input."
                 },
                 {
                     "title": "Similarity Threshold",
@@ -48,8 +48,8 @@
                     "visible": true,
                     "editable": true,
                     "value": 75,
-                    "tooltip": "Specify the similarity threshold (percentage) to match key value data in JSON.",
-                    "description": "Specify the similarity threshold (percentage) to match key value data in JSON."
+                    "tooltip": "Specify the similarity threshold (percentage) that will be used to match the key-value data in JSON.",
+                    "description": "Specify the similarity threshold (percentage) that will be used to match the key-value data in JSON."
                 },
                 {
                     "title": "Fuzzy Match",
@@ -66,13 +66,13 @@
                             {
                                 "name": "cutoff",
                                 "title": "Cut Off",
-                                "description": "Specify Cut Off (percentage) to filter data for Fuzzy Match.",
+                                "description": "Specify the cut-off percentage for matching data using fuzzy logic.",
                                 "type": "integer",
                                 "editable": true,
                                 "visible": true,
                                 "required": true,
                                 "value": 75,
-                                "tooltip": "Specify Cut Off (percentage) to filter data for Fuzzy Match."
+                                "tooltip": "Specify the cut-off percentage for matching data using fuzzy logic."
                             }
                         ]
                     }
@@ -84,7 +84,7 @@
         {
             "title": "Search Keyword In Text",
             "operation": "search_keyword_in_text",
-            "description": "Fuzzy search specified keyword in an input text.",
+            "description": "Searches for a keyword in the specified input text using fuzzy logic.",
             "parameters": [
                 {
                     "title": "Input Text",
@@ -94,8 +94,8 @@
                     "visible": true,
                     "editable": true,
                     "value": null,
-                    "tooltip": "Specify text to search keyword in.",
-                    "description": "Specify text to search keyword in."
+                    "tooltip": "Specify the text in which you want to search the specified keywords.",
+                    "description": "Specify the text in which you want to search the specified keywords."
                 },
                 {
                     "title": "Keyword To Search",
@@ -105,8 +105,8 @@
                     "visible": true,
                     "editable": true,
                     "value": "",
-                    "tooltip": "Specify keyword or list of keywords to search in input text.",
-                    "description": "Specify keyword or list of keywords to search in input text."
+                    "tooltip": "Specify the keyword or the list of keywords that you want to search for in the specified input text.",
+                    "description": "Specify the keyword or the list of keywords that you want to search for in the specified input text."
                 },
                 {
                     "title": "Limit",
@@ -116,8 +116,8 @@
                     "visible": true,
                     "editable": true,
                     "value": 10,
-                    "tooltip": "Specify limit to get occurrence of keyword in input text.",
-                    "description": "Specify limit to get occurrence of keyword in input text."
+                    "tooltip": "Specify the maximum number of keywords to returned by this operation.",
+                    "description": "Specify the maximum number of keywords to returned by this operation. "
                 },
                 {
                     "title": "Cut Off",
@@ -127,8 +127,8 @@
                     "visible": true,
                     "editable": true,
                     "value": 75,
-                    "tooltip": "Specify the Cut Off (percentage) to filter data for Fuzzy Match.",
-                    "description": "Specify the Cut Off (percentage) to filter data for Fuzzy Match."
+                    "tooltip": "Specify the cut-off percentage for matching data using fuzzy logic.",
+                    "description": "Specify the cut-off percentage for matching data using fuzzy logic."
                 }
             ],
             "open": false,
@@ -138,6 +138,6 @@
     "category": "Utilities",
     "active": true,
     "cs_compatible": true,
-    "help_online": "",
+    "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/fuzzy-search/622/fuzzy-search-v1-0-0",
     "cs_approved": false
 }
